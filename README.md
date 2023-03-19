@@ -1,70 +1,53 @@
-# Getting Started with Create React App
+# Web3 Demo
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+使用方式：
 
-## Available Scripts
+一、clone项目到本地
 
-In the project directory, you can run:
+```shell
+git clone https://github.com/lxs2048/web3.git
+```
 
-### `npm start`
+二、安装依赖
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+```shell
+npm i
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+三、创建本地区块链环境
 
-### `npm test`
+```shell
+npm i ganache -g
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+启动：`ganache`命令，生成了10个账号
 
-### `npm run build`
+四、复制私钥在MetaMask插件导入账号
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+五、编译并部署
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```shell
+truffle migrate --reset
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+六、启动项目
 
-### `npm run eject`
+```
+npm start
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+七、执行测试脚本生成订单
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```
+truffle exec ./scripts/createOrders.js
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+启动后执行的原因是项目监听生成订单自动更新页面
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+效果图如下
 
-## Learn More
+![web3-demo](images/web3-demo.png)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+参考教程：https://www.bilibili.com/video/BV1Fd4y1x7jR
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+本项目在学习过程中有挺多改动，如交易所和一些测试文件提取了一些通用方法，前端的redux使用进行了封装优化

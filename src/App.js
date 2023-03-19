@@ -6,7 +6,7 @@ function App() {
   return (
     <StoreWrap>
       <ThemeProvider>
-        <Demo/>
+        {/* <Demo/> */}
         <Balance/>
       </ThemeProvider>
     </StoreWrap>

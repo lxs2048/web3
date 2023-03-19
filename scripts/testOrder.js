@@ -35,6 +35,9 @@ module.exports = async function(callback){
         const deposit = await getAssets(accounts,exchange,token)
         console.log(deposit,'数据😎😎😎deposit');
         // 3. 账户1创建订单1ETH兑换100DOL，查看订单状态0
+        await exchange.makeOrder(ETHER_ADDRESS,toWei(1),token.address,toWei(100),{
+            from: one
+        })//补充创建
         const order1 = await exchange.makeOrder(ETHER_ADDRESS,toWei(1),token.address,toWei(100),{
             from: one
         })

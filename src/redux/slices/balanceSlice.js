@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
-const ETHER_ADDRESS = '0x0000000000000000000000000000000000000000';//address(0)默认地址0x后40个0
+import { loadOrderLists } from "./orderSlice";
+export const ETHER_ADDRESS = '0x0000000000000000000000000000000000000000';//address(0)默认地址0x后40个0
 const balanceSlice = createSlice({
     name: 'balance',
     initialState: {
@@ -27,6 +28,7 @@ export const loadBalanceData = createAsyncThunk(
     "balance/fetchBalanceData",
     async (data, { dispatch }) => {
         const { web3, Instance, Account } = data || {}; // 解构参数
+        dispatch(loadOrderLists(data))
         const ret = await Promise.all([
             getTokenWallet(Instance.tokenInstance, Account),
             getTokenExchange(Instance.exchangeInstance, Instance.tokenInstance, Account),

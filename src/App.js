@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
-
+import obj from './build/DolToken.json';
+console.log(obj,'obj');
 function App() {
   return (
     <div className="App">
